@@ -11,7 +11,8 @@ figure;
 tiledlayout(gcf, 1, 2);
 PendulumAxes = nexttile;
 GraphAxes = nexttile;
-set(PendulumAxes, XLim = [-1.2 1.2], YLim = [-1.2 1.2], XTick = [-1 0 1], YTick =[-1 0 1])
+set(PendulumAxes, XLim = [-1.2 1.2], YLim = [-1.2 1.2], XTick = [-1 0 1], YTick = [-1 0 1], ...
+    Color = 'none', Box = true);
 
 PendulumBob = animatedline(PendulumAxes, Color = 'r', Marker = '.', MarkerSize = 40);
 PendulumRod = animatedline(PendulumAxes, Color = 'k', LineStyle = '-', LineWidth = 3);
@@ -33,6 +34,8 @@ for i = 1 : NumPoints
      
     plot(GraphAxes, Time, Angle);  
     set(GraphAxes, XLim = Interval, YLim = [-2 2]);
+    xlabel 'Time (s)'
+    ylabel Amplitude
     drawnow;
     pause(StepSize);
 end
