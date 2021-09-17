@@ -3,7 +3,7 @@ Seed = 3;
 Multiplier = 13;
 Offset = 0;
 Modulus = 31;
-NumberOfGeneration = 35;
+NumberOfGeneration = 30;
 %% Generation
 assert(Seed ~= 0, 'Seed must not be 0');
 for i = 1 : NumberOfGeneration 
@@ -12,5 +12,6 @@ for i = 1 : NumberOfGeneration
     else 
         X(i) = mod(Multiplier*X(i - 1) + Offset, Modulus);
     end
-    Generated(i) = X(i) / Modulus; 
+    U(i) = X(i) / Modulus; 
 end
+Generated = table(X', U', 'VariableNames', {'X', 'U'});
