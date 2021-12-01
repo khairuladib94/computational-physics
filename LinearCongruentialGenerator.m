@@ -1,10 +1,11 @@
 %% Set LCG parameters
 Seed = 3;
-Multiplier = 13;
+Multiplier = 2;
 Offset = 0;
-Modulus = 31;
-NumberOfGeneration = 30;
+Modulus = 1000;
+NumberOfGeneration = Modulus - 1;
 %% Generation
+clearvars X U Generated
 assert(Seed ~= 0, 'Seed must not be 0');
 for i = 1 : NumberOfGeneration 
     if i == 1
